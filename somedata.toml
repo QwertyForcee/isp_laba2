@@ -1,0 +1,58 @@
+type = "class"
+
+[body]
+classname = "Engine"
+metaclasses = [ "<class 'object'>",]
+
+[body.attributedict]
+status = "False"
+
+[body.attributedict.Start]
+type = "function"
+
+[body.attributedict.Kill]
+type = "function"
+
+[body.attributedict.Start.body]
+modulename = "__main__"
+functionname = "Start"
+
+[body.attributedict.Kill.body]
+modulename = "__main__"
+functionname = "Kill"
+
+[body.attributedict.Start.body.CodeType]
+co_argcount = 1
+co_posonlyargcount = 0
+co_kwonlyargcount = 0
+co_nlocals = 1
+co_stacksize = 2
+co_flags = 67
+co_code = [ 124, 0, 106, 0, 115, 12, 100, 1, 124, 0, 95, 0, 100, 0, 83, 0,]
+co_consts = [ "None", "True",]
+co_names = [ "status",]
+co_varnames = [ "self",]
+co_filename = "D:\\VS Maxim\\isp_l2\\module_toml.py"
+co_name = "Start"
+co_firstlineno = 5
+co_lnotab = [ 0, 1, 6, 1,]
+co_freevars = []
+co_cellvars = []
+
+[body.attributedict.Kill.body.CodeType]
+co_argcount = 1
+co_posonlyargcount = 0
+co_kwonlyargcount = 0
+co_nlocals = 1
+co_stacksize = 2
+co_flags = 67
+co_code = [ 124, 0, 106, 0, 114, 12, 100, 1, 124, 0, 95, 0, 100, 0, 83, 0,]
+co_consts = [ "None", "False",]
+co_names = [ "status",]
+co_varnames = [ "self",]
+co_filename = "D:\\VS Maxim\\isp_l2\\module_toml.py"
+co_name = "Kill"
+co_firstlineno = 9
+co_lnotab = [ 0, 1, 6, 1,]
+co_freevars = []
+co_cellvars = []
