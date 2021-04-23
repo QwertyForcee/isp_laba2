@@ -31,7 +31,6 @@ class MySerializer:
             obj.co_freevars,
             obj.co_cellvars)
         result = types.FunctionType(newobj,md,f.__name__)
-        result()
         return result
         
 

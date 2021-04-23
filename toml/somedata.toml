@@ -1,0 +1,5 @@
+[head]
+a = "I'm a string"
+b = [ "I'm", "a", "string",]
+c = 1212
+d = "True"

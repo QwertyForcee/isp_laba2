@@ -1,7 +1,8 @@
 from toml_serializer import TomlSerializer
 
-o = {'a':"I'm a string",'b':["I'm","a","string"],'c':1212}
+o = {'head':{'a':"I'm a string",'b':["I'm","a","string"],'c':1212,'d':True}}
 
-print(TomlSerializer().dumps(o))
-
+f = open('somedata.toml','w')
+TomlSerializer().dump(o,f)
+f.close()
 

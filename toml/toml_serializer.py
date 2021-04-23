@@ -1,3 +1,6 @@
+import re
+import sys
+
 def _dump_str(v):
     if sys.version_info < (3,) and hasattr(v, 'decode') and isinstance(v, str):
         v = v.decode('utf-8')
@@ -26,7 +29,7 @@ def _dump_str(v):
         else:
             joiner = "u00"
         v = [v[0] + joiner + v[1]] + v[2:]
-    return unicode('"' + v[0] + '"')
+    return str('"' + v[0] + '"')
 
 def _dump_float(v):
     return "{}".format(v).replace("e+0", "e+").replace("e-0", "e-")
@@ -39,7 +42,6 @@ class TomlEncoder:
         self.dump_funcs = {
             str: _dump_str,
             list: self.dump_list,
-            bool: lambda v: unicode(v).lower(),
             int: lambda v: v,
             float: _dump_float
         }    
@@ -47,11 +49,16 @@ class TomlEncoder:
     def dump_list(self, v):
         retval = "["
         for u in v:
-            retval += " " + unicode(self.dump_value(u)) + ","
+            retval += " " + str(self.dump_value(u)) + ","
         retval += "]"
         return retval    
 
-    def dumps(o, encoder=None):
+    def dump(self,obj,f):
+        d = self.dumps(obj)
+        f.write(d)
+        return d
+
+    def dumps(self,o, encoder=None):
         """Stringifies input dict as toml
         Args:
             o: Object to dump into toml
@@ -63,7 +70,7 @@ class TomlEncoder:
         retval = ""
         if encoder is None:
             encoder = TomlEncoder(o.__class__)
-        addtoretval, sections = encoder.dump_sections(o, "")
+        addtoretval, sections = self.dump_sections(o, "")
         retval += addtoretval
         outer_objs = [id(o)]
         while sections:
@@ -87,6 +94,9 @@ class TomlEncoder:
                     newsections[section + "." + s] = addtosections[s]
             sections = newsections
         return retval
+
+    def get_empty_table(self):
+        return self._dict()
 
     def _dump_str(v):
         if sys.version_info < (3,) and hasattr(v, 'decode') and isinstance(v, str):
@@ -116,7 +126,7 @@ class TomlEncoder:
             else:
                 joiner = "u00"
             v = [v[0] + joiner + v[1]] + v[2:]
-        return unicode('"' + v[0] + '"')
+        return str('"' + v[0] + '"')
 
     def dump_value(self, v):
         # Lookup function corresponding to v's type
@@ -133,7 +143,7 @@ class TomlEncoder:
         retdict = self._dict()
         arraystr = ""
         for section in o:
-            section = unicode(section)
+            section = str(section)
             qsection = section
             if not re.match(r'^[A-Za-z0-9_-]+$', section):
                 qsection = _dump_str(section)
@@ -170,7 +180,7 @@ class TomlEncoder:
                 else:
                     if o[section] is not None:
                         retstr += (qsection + " = " +
-                                   unicode(self.dump_value(o[section])) + '\n')
+                                   str(self.dump_value(o[section])) + '\n')
             elif self.preserve and isinstance(o[section], InlineTableDict):
                 retstr += (qsection + " = " +
                            self.dump_inline_table(o[section]))
@@ -179,11 +189,15 @@ class TomlEncoder:
         retstr += arraystr
         return (retstr, retdict)
 
+class TomlDecoder:
+    
+
+
 class TomlSerializer:
     encoder = TomlEncoder()
 
     def dump(self,obj,f):
-        self.encoder.dump(obj)
+        TomlEncoder().dump(obj,f)
     
 
     def dumps(self,obj):
