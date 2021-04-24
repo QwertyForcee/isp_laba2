@@ -16,9 +16,7 @@ print(myclass)
 no = myclass()
 print(no.myy())
 """
-from pydoc import locate
 
-print(locate("object"))
 #data = Serializer().to_valid_dict(square)
 #myfunction = Serializer().to_valid_obj(data)
 #print(myfunction())

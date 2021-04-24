@@ -7,7 +7,6 @@ class Cat:
     def Murr(self):
         print("Murr")
 
-print(Cat.__bases__)
 
 data = Serializer().to_valid_dict(Cat())
 

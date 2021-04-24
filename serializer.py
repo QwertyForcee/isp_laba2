@@ -6,12 +6,14 @@ class Serializer:
         if isinstance(obj,types.FunctionType):
             data = self.func_to_valid(obj)
             return data
-
-        elif str(obj).startswith('<__main__.'): 
-            return  self.instance_to_valid(obj)
+            
         elif inspect.isclass(obj):
             data = self.class_to_valid(obj)
             return data
+
+        elif str(obj).startswith('<__main__.'): 
+            return  self.instance_to_valid(obj)
+
         elif isinstance(obj,(list,dict,tuple,int,float,str,bool,set)):
             return obj
         else:
@@ -90,7 +92,7 @@ class Serializer:
         data['type']='class'
         data['body']=dict()
         data['body']['classname'] = obj.__name__       
-        data['body']['metaclasses'] = obj.__bases__
+        data['body']['metaclasses'] = str(obj.__bases__)
         data['body']['attributedict'] = attributedict
         return data
 
@@ -111,6 +113,7 @@ class Serializer:
     def to_valid_func(self,data):
 
         exec(f"from {data['modulename']} import __dict__ as md")
+
         co = types.CodeType(
             data['CodeType']['co_argcount'],
             data['CodeType']['co_posonlyargcount'],
@@ -118,14 +121,14 @@ class Serializer:
             data['CodeType']['co_nlocals'],
             data['CodeType']['co_stacksize'],
             data['CodeType']['co_flags'],
-            bytes(data['CodeType']['co_code']),
+            bytes(str(data['CodeType']['co_code']),encoding='utf8'),
             tuple(data['CodeType']['co_consts']),
             tuple(data['CodeType']['co_names']),
             tuple(data['CodeType']['co_varnames']),
             data['CodeType']['co_filename'],
             data['CodeType']['co_name'],
             data['CodeType']['co_firstlineno'],
-            bytes(data['CodeType']['co_lnotab']),
+            bytes(str(data['CodeType']['co_lnotab']),'utf8'),
             tuple(data['CodeType']['co_freevars']),
             tuple(data['CodeType']['co_cellvars'])
         )
