@@ -1,0 +1,30 @@
+{
+    "type": "function",
+    "body": {
+        "modulename": "__main__",
+        "functionname": "privet",
+        "CodeType": {
+            "co_argcount": 0,
+            "co_posonlyargcount": 0,
+            "co_kwonlyargcount": 0,
+            "co_nlocals": 0,
+            "co_stacksize": 2,
+            "co_flags": 67,
+            "co_code": "b't\\x00t\\x01\\x83\\x01\\x01\\x00d\\x00S\\x00'",
+            "co_consts": [
+                null
+            ],
+            "co_names": [
+                "print",
+                "glob"
+            ],
+            "co_varnames": [],
+            "co_filename": "D:\\ispl2\\laba2_temp\\example_json.py",
+            "co_name": "privet",
+            "co_firstlineno": 5,
+            "co_lnotab": "b'\\x00\\x01'",
+            "co_freevars": [],
+            "co_cellvars": []
+        }
+    }
+}

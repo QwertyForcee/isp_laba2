@@ -3,7 +3,7 @@ import inspect
 
 class Serializer:
     def to_valid_dict(self,obj):
-        if isinstance(obj,types.FunctionType):
+        if isinstance(obj,types.FunctionType) or isinstance(obj,types.MethodWrapperType):
             data = self.func_to_valid(obj)
             return data
             
@@ -32,6 +32,7 @@ class Serializer:
             return data
                 
 
+
     def func_to_valid(self,obj):
         data = {'type':'function'}
         data['body'] = dict()
@@ -42,7 +43,7 @@ class Serializer:
 
 
     def _codetype_fill(self,co):
-        #Not for the faint of heart. FUCK MY LIFE
+        #Not for the faint of heart.
         code_dict = dict()
         code_dict['co_argcount'] = co.co_argcount
         code_dict['co_posonlyargcount'] = co.co_posonlyargcount 
@@ -100,12 +101,13 @@ class Serializer:
         attributedict = dict()
         for a in data['attributedict'].items():
             attributedict[a[0]] = self.to_valid_obj(a[1])
-        
+            #if isinstance(attributedict[a[0]],types.MethodWrapperType)
+            #    attributedictp[a[0]] = 
+
         meta = tuple(data['metaclasses'])
         for m in data['metaclasses']:
             if isinstance(m,str):
                 meta = (object,)
-                
 
         return type(data['classname'],meta,attributedict)
 

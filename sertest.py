@@ -9,13 +9,15 @@ class Noname:
     def ab(self):
         return self.a*self.b
 
-"""
-data = Serializer().to_valid_dict(Noname)
+    def pr_global(self):
+        print(globalglobal)
+
+
+data = Serializer().to_valid_dict(Noname())
 myclass = Serializer().to_valid_obj(data)
 print(myclass)
-no = myclass()
-print(no.myy())
-"""
+myclass.pr_global()
+
 
 #data = Serializer().to_valid_dict(square)
 #myfunction = Serializer().to_valid_obj(data)

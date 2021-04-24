@@ -7,20 +7,20 @@ bigVariable = 55_192_217
 class bigA:
     a = {4:'3333',41:'im tired'}
 
-    @classmethod
-    def stupied_func_name():
+    def stupied_func_name(self):
         print('stupied output')
         
-    @classmethod
-    def biVar():
+    def biVar(self):
         print(bigVariable)
 
-    
+myA = bigA()
+myA.biVar()
 
 data = jser.dumps(bigA)
-obj = jser.loads(data)
+obj1 = jser.loads(data)
+obj = obj1()
 print(obj.a)
-print(obj.stupied_func_name)
-print(obj.biVar)
+print(obj.stupied_func_name())
+print(obj.biVar())
 
 
