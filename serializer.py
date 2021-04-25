@@ -36,6 +36,11 @@ class Serializer:
     def func_to_valid(self,obj):
         data = {'type':'function'}
         data['body'] = dict()
+        data['body']['globals']=dict()
+        globs = obj.__globals__.items()
+        for g in globs:
+            if g[0] in obj.__code__.co_names:
+                data['body']['globals'][g[0]]=self.to_valid_dict(g[1])
         data['body']['modulename'] = obj.__globals__['__name__']
         data['body']['functionname'] = obj.__name__
         data['body']['CodeType']=self._codetype_fill(obj.__code__)
@@ -65,7 +70,7 @@ class Serializer:
         return code_dict
 
     def instance_to_valid(self,obj):
-        data = {'fields':dict(),'class':self.to_valid_obj(obj.__class__)}
+        data = {'fields':dict(),'class':self.to_valid_dict(obj.__class__)}
         custom=[o for o in obj.__class__.__dict__.items() if not o[0].startswith('__')]
         for c in custom:
             data[c[0]] = self.to_valid_dict(c[1])
@@ -74,7 +79,7 @@ class Serializer:
         return data
 
     def to_valid_instance(self,data):
-        obj_class = self.to_valid_obj(data['body']['class'])
+        obj_class = self.to_valid_obj(eval(str(data['body']['class'])))
         instance = obj_class()
         src = list(data['body']['fields'].values())
         name = data['type']
@@ -134,6 +139,7 @@ class Serializer:
             tuple(data['CodeType']['co_freevars']),
             tuple(data['CodeType']['co_cellvars'])
         )
+        eval('md').update(self.to_valid_obj(data['globals']))
         result = types.FunctionType(co,eval('md'),data['functionname'])
         return result
 
