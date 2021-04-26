@@ -8,13 +8,17 @@ class Simple:
     a=5
     b=787
     x=[9,8,7,6,5,4,21]
+
+    square=lambda slf,x: x**2
+
     class InsideClass:
         insidevalue="inside value"
 
     def hate(self):
-        return global_hate
+        print(global_hate)
+
 
 def say():
-    print('privet))')
+    print(glob)
 
 jser.dump(Simple,open('clear.json','w'))

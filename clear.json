@@ -15,6 +15,38 @@
                 4,
                 21
             ],
+            "square": {
+                "type": "function",
+                "body": {
+                    "globals": {},
+                    "modulename": "__main__",
+                    "functionname": "<lambda>",
+                    "CodeType": {
+                        "co_argcount": 2,
+                        "co_posonlyargcount": 0,
+                        "co_kwonlyargcount": 0,
+                        "co_nlocals": 2,
+                        "co_stacksize": 2,
+                        "co_flags": 67,
+                        "co_code": "b'|\\x01d\\x01\\x13\\x00S\\x00'",
+                        "co_consts": [
+                            null,
+                            2
+                        ],
+                        "co_names": [],
+                        "co_varnames": [
+                            "slf",
+                            "x"
+                        ],
+                        "co_filename": "D:\\ispl2\\laba2_temp\\cleartest.py",
+                        "co_name": "<lambda>",
+                        "co_firstlineno": 12,
+                        "co_lnotab": "b''",
+                        "co_freevars": [],
+                        "co_cellvars": []
+                    }
+                }
+            },
             "InsideClass": {
                 "type": "class",
                 "body": {
@@ -38,21 +70,22 @@
                         "co_posonlyargcount": 0,
                         "co_kwonlyargcount": 0,
                         "co_nlocals": 1,
-                        "co_stacksize": 1,
+                        "co_stacksize": 2,
                         "co_flags": 67,
-                        "co_code": "b't\\x00S\\x00'",
+                        "co_code": "b't\\x00t\\x01\\x83\\x01\\x01\\x00d\\x00S\\x00'",
                         "co_consts": [
                             null
                         ],
                         "co_names": [
+                            "print",
                             "global_hate"
                         ],
                         "co_varnames": [
                             "self"
                         ],
-                        "co_filename": "D:\\VS Maxim\\isp_l2\\cleartest.py",
+                        "co_filename": "D:\\ispl2\\laba2_temp\\cleartest.py",
                         "co_name": "hate",
-                        "co_firstlineno": 14,
+                        "co_firstlineno": 17,
                         "co_lnotab": "b'\\x00\\x01'",
                         "co_freevars": [],
                         "co_cellvars": []
