@@ -128,19 +128,25 @@ class Serializer:
             data['CodeType']['co_nlocals'],
             data['CodeType']['co_stacksize'],
             data['CodeType']['co_flags'],
-            bytes(str(data['CodeType']['co_code']),encoding='utf8'),
+            (data['CodeType']['co_code'])[2:len(data['CodeType']['co_code'])-1].encode(),
+            # bytes(bytearray([(data['CodeType']['co_code'])[2:len(data['CodeType']['co_code'])-1]])),
             tuple(data['CodeType']['co_consts']),
             tuple(data['CodeType']['co_names']),
             tuple(data['CodeType']['co_varnames']),
             data['CodeType']['co_filename'],
             data['CodeType']['co_name'],
             data['CodeType']['co_firstlineno'],
-            bytes(str(data['CodeType']['co_lnotab']),'utf8'),
+            (data['CodeType']['co_lnotab'])[2:len(data['CodeType']['co_lnotab'])-1].encode(),
+            # bytes(str(data['CodeType']['co_lnotab']),'utf8'),
             tuple(data['CodeType']['co_freevars']),
             tuple(data['CodeType']['co_cellvars'])
         )
-        eval('md').update(self.to_valid_obj(data['globals']))
-        result = types.FunctionType(co,eval('md'),data['functionname'])
+        globs = self.to_valid_obj(data['globals'])
+        globs.update({'__module__':data["modulename"]})
+        #test #eval(md)
+        #eval('md').update()
+        result = types.FunctionType(co,globs,data['functionname'])
+        result.__module__=data["modulename"]
         return result
 
 

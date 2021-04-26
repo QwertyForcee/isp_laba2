@@ -9,10 +9,8 @@ def func():
     a=5
     c=12
     d=1
-
     print(a+b+c+d)
 
-print('funcname',func.__name__)
 
 #print(func.__globals__)
 b=33

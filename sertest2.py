@@ -32,7 +32,3 @@ mycat.pr_gl()
 val = mycat.A()
 print('Cat A', val.value)
 
-
-
-def func123():
-    print(123)

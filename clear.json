@@ -1,33 +1,64 @@
 {
-    "type": "function",
+    "type": "class",
     "body": {
-        "globals": {
-            "global_hate": "i hate class method's  serialization :)))"
-        },
-        "modulename": "__main__",
-        "functionname": "say",
-        "CodeType": {
-            "co_argcount": 0,
-            "co_posonlyargcount": 0,
-            "co_kwonlyargcount": 0,
-            "co_nlocals": 0,
-            "co_stacksize": 2,
-            "co_flags": 67,
-            "co_code": "b't\\x00t\\x01\\x83\\x01\\x01\\x00d\\x00S\\x00'",
-            "co_consts": [
-                null
+        "classname": "Simple",
+        "metaclasses": "(<class 'object'>,)",
+        "attributedict": {
+            "a": 5,
+            "b": 787,
+            "x": [
+                9,
+                8,
+                7,
+                6,
+                5,
+                4,
+                21
             ],
-            "co_names": [
-                "print",
-                "global_hate"
-            ],
-            "co_varnames": [],
-            "co_filename": "D:\\VS Maxim\\isp_l2\\cleartest.py",
-            "co_name": "say",
-            "co_firstlineno": 17,
-            "co_lnotab": "b'\\x00\\x01'",
-            "co_freevars": [],
-            "co_cellvars": []
+            "InsideClass": {
+                "type": "class",
+                "body": {
+                    "classname": "InsideClass",
+                    "metaclasses": "(<class 'object'>,)",
+                    "attributedict": {
+                        "insidevalue": "inside value"
+                    }
+                }
+            },
+            "hate": {
+                "type": "function",
+                "body": {
+                    "globals": {
+                        "global_hate": "i hate class method's  serialization :)))"
+                    },
+                    "modulename": "__main__",
+                    "functionname": "hate",
+                    "CodeType": {
+                        "co_argcount": 1,
+                        "co_posonlyargcount": 0,
+                        "co_kwonlyargcount": 0,
+                        "co_nlocals": 1,
+                        "co_stacksize": 1,
+                        "co_flags": 67,
+                        "co_code": "b't\\x00S\\x00'",
+                        "co_consts": [
+                            null
+                        ],
+                        "co_names": [
+                            "global_hate"
+                        ],
+                        "co_varnames": [
+                            "self"
+                        ],
+                        "co_filename": "D:\\VS Maxim\\isp_l2\\cleartest.py",
+                        "co_name": "hate",
+                        "co_firstlineno": 14,
+                        "co_lnotab": "b'\\x00\\x01'",
+                        "co_freevars": [],
+                        "co_cellvars": []
+                    }
+                }
+            }
         }
     }
 }

@@ -15,6 +15,6 @@ class Simple:
         return global_hate
 
 def say():
-    print(global_hate)
+    print('privet))')
 
-jser.dump(say,open('clear.json','w'))
+jser.dump(Simple,open('clear.json','w'))
