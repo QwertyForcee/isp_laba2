@@ -7,21 +7,50 @@ metaclasses = "(<class 'object'>,)"
 [body.attributedict]
 status = "False"
 
-[body.attributedict.Start]
+[body.attributedict.show]
 type = "function"
 
-[body.attributedict.Kill]
+[body.attributedict.start]
 type = "function"
 
-[body.attributedict.Start.body]
-modulename = "__main__"
-functionname = "Start"
+[body.attributedict.kill]
+type = "function"
 
-[body.attributedict.Kill.body]
+[body.attributedict.show.body]
 modulename = "__main__"
-functionname = "Kill"
+functionname = "show"
 
-[body.attributedict.Start.body.CodeType]
+[body.attributedict.start.body]
+modulename = "__main__"
+functionname = "start"
+
+[body.attributedict.kill.body]
+modulename = "__main__"
+functionname = "kill"
+
+[body.attributedict.show.body.globals]
+
+[body.attributedict.show.body.CodeType]
+co_argcount = 1
+co_posonlyargcount = 0
+co_kwonlyargcount = 0
+co_nlocals = 1
+co_stacksize = 2
+co_flags = 67
+co_code = [ 116, 0, 100, 1, 131, 1, 1, 0, 100, 0, 83, 0,]
+co_consts = [ "None", "this is an engine",]
+co_names = [ "print",]
+co_varnames = [ "self",]
+co_filename = "d:\\VS Maxim\\isp_l2\\module_toml.py"
+co_name = "show"
+co_firstlineno = 5
+co_lnotab = [ 0, 1,]
+co_freevars = []
+co_cellvars = []
+
+[body.attributedict.start.body.globals]
+
+[body.attributedict.start.body.CodeType]
 co_argcount = 1
 co_posonlyargcount = 0
 co_kwonlyargcount = 0
@@ -32,14 +61,16 @@ co_code = [ 124, 0, 106, 0, 115, 12, 100, 1, 124, 0, 95, 0, 100, 0, 83, 0,]
 co_consts = [ "None", "True",]
 co_names = [ "status",]
 co_varnames = [ "self",]
-co_filename = "D:\\VS Maxim\\isp_l2\\module_toml.py"
-co_name = "Start"
-co_firstlineno = 5
+co_filename = "d:\\VS Maxim\\isp_l2\\module_toml.py"
+co_name = "start"
+co_firstlineno = 7
 co_lnotab = [ 0, 1, 6, 1,]
 co_freevars = []
 co_cellvars = []
 
-[body.attributedict.Kill.body.CodeType]
+[body.attributedict.kill.body.globals]
+
+[body.attributedict.kill.body.CodeType]
 co_argcount = 1
 co_posonlyargcount = 0
 co_kwonlyargcount = 0
@@ -50,9 +81,9 @@ co_code = [ 124, 0, 106, 0, 114, 12, 100, 1, 124, 0, 95, 0, 100, 0, 83, 0,]
 co_consts = [ "None", "False",]
 co_names = [ "status",]
 co_varnames = [ "self",]
-co_filename = "D:\\VS Maxim\\isp_l2\\module_toml.py"
-co_name = "Kill"
-co_firstlineno = 9
+co_filename = "d:\\VS Maxim\\isp_l2\\module_toml.py"
+co_name = "kill"
+co_firstlineno = 11
 co_lnotab = [ 0, 1, 6, 1,]
 co_freevars = []
 co_cellvars = []

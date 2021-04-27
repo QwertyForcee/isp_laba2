@@ -121,11 +121,20 @@ class Serializer:
     def to_valid_func(self,data):
 
         exec(f"from {data['modulename']} import __dict__ as md")
-        cocode = (data['CodeType']['co_code'])[2:len(data['CodeType']['co_code'])-1].encode().decode('unicode_escape')
-        
-        #cocode = eval(f"""str("{cocode}")""")
 
-        colnotab = (data['CodeType']['co_lnotab'])[2:len(data['CodeType']['co_lnotab'])-1].encode().decode('unicode_escape')
+        if isinstance(data['CodeType']['co_code'],list):
+            cocode = bytes(data['CodeType']['co_code'])
+        else:        
+            cocode = (data['CodeType']['co_code'])[2:len(data['CodeType']['co_code'])-1].encode().decode('unicode_escape')
+            cocode = cocode.encode('latin-1')
+
+
+        #cocode = eval(f"""str("{cocode}")""")
+        if isinstance(data['CodeType']['co_lnotab'],list):
+            colnotab = bytes(data['CodeType']['co_lnotab'])
+        else:
+            colnotab = (data['CodeType']['co_lnotab'])[2:len(data['CodeType']['co_lnotab'])-1].encode().decode('unicode_escape')
+            colnotab = colnotab.encode('latin-1')
         #colnotab = eval(f"""str("{colnotab}")""")
 
         co = types.CodeType(
@@ -135,7 +144,7 @@ class Serializer:
             data['CodeType']['co_nlocals'],
             data['CodeType']['co_stacksize'],
             data['CodeType']['co_flags'],
-            cocode.encode('latin-1'),
+            cocode,
             # bytes(bytearray([(data['CodeType']['co_code'])[2:len(data['CodeType']['co_code'])-1]])),
             tuple(data['CodeType']['co_consts']),
             tuple(data['CodeType']['co_names']),
@@ -143,7 +152,7 @@ class Serializer:
             data['CodeType']['co_filename'],
             data['CodeType']['co_name'],
             data['CodeType']['co_firstlineno'],
-            colnotab.encode('latin-1'),
+            colnotab,
             # bytes(str(data['CodeType']['co_lnotab']),'utf8'),
             tuple(data['CodeType']['co_freevars']),
             tuple(data['CodeType']['co_cellvars'])

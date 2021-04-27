@@ -4,21 +4,21 @@ class Engine:
     status=False
     def show(self):
         print('this is an engine')
-    def Start(self):
+    def start(self):
         if not self.status:
             self.status=True
 
-    def Kill(self):
+    def kill(self):
         if self.status:
             self.status=False
 
 
 
 data = TomlSerializer().dumps(Engine)
-#TomlSerializer().dump(Engine,open('somedata.toml','w'))
-e = TomlSerializer().loads(data)
+TomlSerializer().dump(Engine,open('somedata.toml','w'))
+e = TomlSerializer().load(open('somedata.toml'))
 e1 = e()
 print(e1.status)
-e.show(e1)
-e1.Start
+e1.show()
+e1.start()
 print(e1.status)
