@@ -1,5 +1,12 @@
 import yaml
 
-d1 = {1:'123',2:'helo',3:'wrong'}
-obj = yaml.dumps(d1)
+d1 = [
+    {'helk':3000,'foo':'bar'},
+    {'heeelo':-1,'bar':'foo'},
+    [123,132,312,321,213,231],
+    ('hello','from','tuple','mptherfcker')
+]
+
+d1=['tuple','da','da']
+obj = yaml.dump(d1)
 print(obj)
