@@ -40,7 +40,7 @@ class Dumper():
             return ""
     
     def dumps(self,obj):
-        return self.tovalid(obj)
+        return self.fix(self.tovalid(obj))
             
 
     def _dump_dict(self,obj):
@@ -70,8 +70,18 @@ class Dumper():
         self.current_indent-=1            
         return result
 
+    def fix(self,data):
+        if data.startswith('\n'):
+            data = data.replace('\n','',1)
+        data = str.rstrip(data)
+        return data
+        
 
-
+class Loader():
+    def tovalid(self,data):
+        pass
+    def loads(self,data):
+        pass
 
 
 class YamlSerializer(Serializer):
