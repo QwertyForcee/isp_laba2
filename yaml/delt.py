@@ -8,13 +8,30 @@ def somefunc(indent,data,index):
         if cur == indent:
             temp = validtemp(d[0])
             if isinstance(temp,dict):
-                if temp.items()[0]==None:
+                if list(temp.values())[0] is None:
                     prev = list(temp.keys())[0]
+                    res.update(temp)
+                    index+=1
+                    continue
 
-            res.update(temp)
+            res[temp[0]] = temp[1]
         elif cur > indent:
             temp = somefunc(cur,data,index)
             res[prev] = temp
+            
+            temp_index = index
+            more_items=False
+            for item in data[index:]:
+                if item[1] == indent:
+                    more_items = True
+                    break
+                temp_index+=1                
+            if more_items:
+                temp = somefunc(cur,data,temp_index)
+                res.update(temp)
+                return res
+            else:
+                return  res
 
         elif cur < indent:
             break
@@ -36,7 +53,7 @@ def validtemp(string):
                 res = True
             elif value == 'false' or value == 'False':
                 res = False
-        return (temp[0][0],res)         
+        return res       
     temp =re.findall(r"(\w+): \"(.+)\"",string)
     if len(temp)>0:
         return temp[0]
@@ -45,7 +62,7 @@ def validtemp(string):
         return {temp[0]:None}
 
 
-res = open('yamla.yml').read()
+res = open('yaml\\yamla.yml').read()
 
 data = res.split('\n')
 #print(data)

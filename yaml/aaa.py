@@ -1,8 +1,5 @@
-a = {'1':'123'}
 
-a.update({'2':'123'})
+a={'3':None}
 
-a.update({'3':None})
-
-print(list(a.keys()))
+print(list(a.values())[0])
 
