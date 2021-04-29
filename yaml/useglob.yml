@@ -1,0 +1,26 @@
+type: "function"
+body: 
+  globals: 
+    pi: 3.14159265359
+  modulename: "__main__"
+  functionname: "use_glob"
+  CodeType: 
+    co_argcount: 0
+    co_posonlyargcount: 0
+    co_kwonlyargcount: 0
+    co_nlocals: 0
+    co_stacksize: 2
+    co_flags: 67
+    co_code: "b't\x00t\x01\x83\x01\x01\x00d\x00S\x00'"
+    co_consts: !!python/tuple
+      - null
+    co_names: !!python/tuple
+      - "print"
+      - "pi"
+    co_varnames: !!python/tuple
+    co_filename: "D:\ispl2\laba2_temp\yaml\dump_test1.py"
+    co_name: "use_glob"
+    co_firstlineno: 4
+    co_lnotab: "b'\x00\x01'"
+    co_freevars: !!python/tuple
+    co_cellvars: !!python/tuple

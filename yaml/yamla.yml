@@ -5,6 +5,14 @@ body:
   attributedict: 
     about: "god knows what it is"
     somedata: 
-      1: "poka bez listov"
-      2: "XD"
-    extradata: 1000
+      - "nine"
+      - 8
+      - 7
+      - 6
+      - 5
+      - 4
+      - 3
+      - 2
+      - 1
+      - 0
+    extradata: true
