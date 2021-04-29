@@ -1,5 +1,8 @@
+from yaml_serializer import YamlSerializer
 
-a={'3':None}
+data = open('yamla.yml').read()
 
-print(list(a.values())[0])
+res = YamlSerializer().loads(data)
+print(res)
+temp = 123
 

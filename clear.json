@@ -38,7 +38,7 @@
                             "slf",
                             "x"
                         ],
-                        "co_filename": "D:\\VS Maxim\\isp_l2\\cleartest.py",
+                        "co_filename": "D:\\ispl2\\laba2_temp\\cleartest.py",
                         "co_name": "<lambda>",
                         "co_firstlineno": 12,
                         "co_lnotab": "b''",
@@ -83,7 +83,7 @@
                         "co_varnames": [
                             "self"
                         ],
-                        "co_filename": "D:\\VS Maxim\\isp_l2\\cleartest.py",
+                        "co_filename": "D:\\ispl2\\laba2_temp\\cleartest.py",
                         "co_name": "hate",
                         "co_firstlineno": 17,
                         "co_lnotab": "b'\\x00\\x01'",

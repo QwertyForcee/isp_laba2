@@ -27,9 +27,10 @@ def somefunc(indent,data,index):
                     break
                 temp_index+=1                
             if more_items:
-                temp = somefunc(cur,data,temp_index)
+                temp = somefunc(indent,data,temp_index)
                 res.update(temp)
                 return res
+
             else:
                 return  res
 
