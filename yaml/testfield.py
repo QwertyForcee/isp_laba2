@@ -8,7 +8,7 @@ class Yamla():
     somedata = {'1':'poka bez listov','2':'XD'}
     #somedata = [9,8,7,6,5,4,3,2,1,0]
 
-#YamlSerializer().dump(Yamla,open('yamla.yml','w'))
+YamlSerializer().dump(Yamla,open('yamla.yml','w'))
 res = YamlSerializer().dumps(a)
 s = res.split('\n')
 print(s)

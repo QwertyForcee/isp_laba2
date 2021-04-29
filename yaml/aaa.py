@@ -4,5 +4,7 @@ data = open('yamla.yml').read()
 
 res = YamlSerializer().loads(data)
 print(res)
-temp = 123
+print(res.about)
+print(res.somedata)
+print(res.extradata)
 

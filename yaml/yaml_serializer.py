@@ -84,6 +84,7 @@ class Loader():
         tabs_info = list()
         for item in data:
             tabs_info.append((item, len(re.findall(r"( *).+",item)[0])) )
+        return tabs_info
         
     
     def parse(self,indent,data,index):
@@ -93,7 +94,7 @@ class Loader():
         for d in data[index:]:
             cur = d[1]
             if cur == indent:
-                temp = validtemp(d[0])
+                temp = self.validtemp(d[0])
                 if isinstance(temp,dict):
                     if list(temp.values())[0] is None:
                         prev = list(temp.keys())[0]
@@ -103,7 +104,7 @@ class Loader():
 
                 res[temp[0]] = temp[1]
             elif cur > indent:
-                temp = somefunc(cur,data,index)
+                temp = self.parse(cur,data,index)
                 res[prev] = temp
                 
                 temp_index = index
@@ -114,7 +115,7 @@ class Loader():
                         break
                     temp_index+=1                
                 if more_items:
-                    temp = somefunc(indent,data,temp_index)
+                    temp = self.parse(indent,data,temp_index)
                     res.update(temp)
                     return res
 
@@ -140,7 +141,7 @@ class Loader():
                     res = True
                 elif value == 'false' or value == 'False':
                     res = False
-            return res       
+            return (temp[0][0],res)     
         temp =re.findall(r"(\w+): \"(.+)\"",string)
         if len(temp)>0:
             return temp[0]
@@ -159,8 +160,12 @@ class Loader():
 
 
 class YamlSerializer(Serializer):
-    def load():
-        pass
+    def load(f):
+        data = f.read()
+        f.close()
+        obj = self.loads(data)
+        return obj
+
     def loads(self,data):
         obj = Loader().loads(data)
         return self.to_valid_obj(obj)

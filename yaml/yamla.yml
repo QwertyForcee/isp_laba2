@@ -7,4 +7,4 @@ body:
     somedata: 
       1: "poka bez listov"
       2: "XD"
-  extra: "extra data"
+    extradata: 1000
