@@ -46,6 +46,8 @@ class Dumper():
             
 
     def _dump_dict(self,obj):
+        if len(obj)==0:
+            return "{}"
         curtabs = tabs(self.current_indent)
         self.current_indent+=1
         result="\n"
@@ -55,6 +57,8 @@ class Dumper():
         return result
 
     def _dump_list(self,obj):
+        if len(obj)==0:
+            return "[]"
         curtabs = tabs(self.current_indent)
         self.current_indent+=1
         result="\n"
@@ -88,6 +92,8 @@ class Loader():
     def parse_prepare(self,data):
         data = data.split('\n')
         #print(data)
+        if '' in data:
+            data.remove('')
         tabs_info = list()
         for item in data:
             tabs_info.append((item, len(re.findall(r"( *).+",item)[0])) )
@@ -167,8 +173,13 @@ class Loader():
         return res
 
     def validtemp(self,string):
-        data = dict()
 
+        temp = re.findall(r"(\w+): \[\]",string)
+        if len(temp)>0:
+            return (temp[0],list())
+        temp = re.findall(r"(\w+): {}",string)
+        if len(temp)>0:
+            return (temp[0],dict())
         temp = re.findall(r"(\w+): !!python/tuple",string)
         if len(temp)>0:
             return ('!!python/tuple',temp[0])        
@@ -185,6 +196,8 @@ class Loader():
                     res = True
                 elif value == 'false' or value == 'False':
                     res = False
+                elif value == 'null':
+                    res = None
             return (temp[0][0],res)     
         temp =re.findall(r"(\w+): \"(.+)\"",string)
         if len(temp)>0:

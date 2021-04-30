@@ -1,0 +1,33 @@
+type: "class"
+body: 
+  classname: "Iitp"
+  metaclasses: "(<class 'object'>,)"
+  attributedict: 
+    students: []
+    expel: 
+      type: "function"
+      body: 
+        globals: {}
+        modulename: "__main__"
+        functionname: "expel"
+        CodeType: 
+          co_argcount: 1
+          co_posonlyargcount: 0
+          co_kwonlyargcount: 0
+          co_nlocals: 1
+          co_stacksize: 2
+          co_flags: 67
+          co_code: "b't\x00\x83\x00|\x00_\x01d\x00S\x00'"
+          co_consts: !!python/tuple
+            - null
+          co_names: !!python/tuple
+            - "list"
+            - "students"
+          co_varnames: !!python/tuple
+            - "self"
+          co_filename: "D:\ispl2\laba2_temp\yaml\dump_test1.py"
+          co_name: "expel"
+          co_firstlineno: 9
+          co_lnotab: "b'\x00\x01'"
+          co_freevars: !!python/tuple
+          co_cellvars: !!python/tuple
