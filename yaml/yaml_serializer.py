@@ -187,6 +187,9 @@ class Loader():
         if len(temp)>0:
             return ('!!python/tuple',temp[0])        
 
+        temp =re.findall(r"(\w+): (\d+\.\d+)",string)
+        if len(temp)>0:
+            return (temp[0][0],float(temp[0][1]))
         temp =re.findall(r"(\w+): (\w+)",string)
         if len(temp)>0:
             value = temp[0][1]

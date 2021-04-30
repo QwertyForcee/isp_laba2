@@ -26,9 +26,16 @@ class MyRange():
         return self
     
     def __next__(self):
-        temp = self.current
-        self.current+=self.step
-        if (self.current==)
+        if (self.current<self.end):
+            temp = self.current
+            self.current+=self.step
+            return temp
+        else:
+            self.current=self.start
+            raise StopIteration
 
-print(MyRange(6))
+r = MyRange(10,17,2)
+for x in r:
+    print(x)
+print(r.current)
 

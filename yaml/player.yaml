@@ -1,0 +1,72 @@
+type: "<class '__main__.TestYamlSerializer.test_dumps_instance.<locals>.Player'>"
+body: 
+  fields: 
+    nickname: "FeedORfeed"
+    team: "Green"
+    about: 
+      type: "function"
+      body: 
+        globals: {}
+        modulename: "__main__"
+        functionname: "about"
+        CodeType: 
+          co_argcount: 1
+          co_posonlyargcount: 0
+          co_kwonlyargcount: 0
+          co_nlocals: 1
+          co_stacksize: 3
+          co_flags: 83
+          co_code: "b'|\x00j\x00\x9b\x00d\x01|\x00j\x01\x9b\x00\x9d\x03S\x00'"
+          co_consts: !!python/tuple
+            - null
+            - "#"
+          co_names: !!python/tuple
+            - "nickname"
+            - "team"
+          co_varnames: !!python/tuple
+            - "self"
+          co_filename: "D:\VS Maxim\isp_l2\yaml\test_yaml.py"
+          co_name: "about"
+          co_firstlineno: 15
+          co_lnotab: "b'\x00\x01'"
+          co_freevars: !!python/tuple
+          co_cellvars: !!python/tuple
+
+
+
+  class: 
+    type: "class"
+    body: 
+      classname: "Player"
+      metaclasses: "(<class 'object'>,)"
+      attributedict: 
+        nickname: "Player"
+        team: "Red"
+        about: 
+          type: "function"
+          body: 
+            globals: {}
+            modulename: "__main__"
+            functionname: "about"
+            CodeType: 
+              co_argcount: 1
+              co_posonlyargcount: 0
+              co_kwonlyargcount: 0
+              co_nlocals: 1
+              co_stacksize: 3
+              co_flags: 83
+              co_code: "b'|\x00j\x00\x9b\x00d\x01|\x00j\x01\x9b\x00\x9d\x03S\x00'"
+              co_consts: !!python/tuple
+                - null
+                - "#"
+              co_names: !!python/tuple
+                - "nickname"
+                - "team"
+              co_varnames: !!python/tuple
+                - "self"
+              co_filename: "D:\VS Maxim\isp_l2\yaml\test_yaml.py"
+              co_name: "about"
+              co_firstlineno: 15
+              co_lnotab: "b'\x00\x01'"
+              co_freevars: !!python/tuple
+              co_cellvars: !!python/tuple

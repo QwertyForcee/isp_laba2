@@ -9,5 +9,3 @@ print(res.somedata)
 print(res.extradata)
 
 
-a = tuple()
-print(a)

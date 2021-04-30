@@ -13,8 +13,9 @@ class Serializer:
 
         elif str(obj).startswith('<__main__.'): 
             return  self.instance_to_valid(obj)
-
-        elif isinstance(obj,(list,dict,tuple,int,float,str,bool,set)):
+        elif isinstance(obj,list):
+            return [self.to_valid_dict(x) for x in obj]
+        elif isinstance(obj,(dict,tuple,int,float,str,bool,set)):
             return obj
         else:
             return self.instance_to_valid(obj)
@@ -74,18 +75,33 @@ class Serializer:
         data = {'fields':dict(),'class':self.to_valid_dict(obj.__class__)}
         custom=[o for o in obj.__class__.__dict__.items() if not o[0].startswith('__')]
         for c in custom:
-            data[c[0]] = self.to_valid_dict(c[1])
+            data['fields'][c[0]] = self.to_valid_dict(c[1])
+
+        custom=[o for o in obj.__dict__.items() if not o[0].startswith('__')]
+        for c in custom:
+            data['fields'][c[0]] = self.to_valid_dict(c[1])
         
         data = {"type":str(obj.__class__),"body":data}
         return data
 
     def to_valid_instance(self,data):
         obj_class = self.to_valid_obj(eval(str(data['body']['class'])))
+        extra_attrs= dict()
+        for key,value in data['body']['fields'].items():
+            setattr(obj_class,key,self.to_valid_obj(value))
+        #obj_class.__dict__.update(extra_attrs)
         instance = obj_class()
-        src = list(data['body']['fields'].values())
-        name = data['type']
+        #instance.__dict__.update(extra_attrs)
+        #src = list(data['body']['fields'].values())
+        #name = data['type']
+        """
         for f in list(data["body"]["fields"].items()):
-            eval(f"instance.{str(f[0])} = {self.to_valid_obj(f[1])}")
+            temp = self.to_valid_obj(f[1])
+            if inspect.isclass(temp):
+                eval(f"instance.{str(f[0])} = temp")
+            else:
+                eval(f"instance.{str(f[0])} = {temp}")
+        """
 
         return instance      
 

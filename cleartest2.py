@@ -13,6 +13,6 @@ print('obj.a',obj.a)
 print('obj.b',obj.b)
 print('obj.x',obj.x)
 print('obj.InsideClass.insidevalue',obj.InsideClass.insidevalue)
-obj().hate()
-print(obj().square(6))
+obj.hate()
+print(obj.square(6))
 

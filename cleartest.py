@@ -21,4 +21,4 @@ class Simple:
 def say():
     print(glob)
 
-jser.dump(Simple,open('clear.json','w'))
+jser.dump(Simple(),open('clear.json','w'))

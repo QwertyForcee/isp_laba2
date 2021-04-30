@@ -1,13 +1,15 @@
-glob=123
-glob2=321
+class A:
+    foo=123
+    bar=500
 
-def funci():
-    print(glob,glob2)
+class B:
+    pass
 
-print(funci.__code__.co_names)
+a=A()
+a.foo =1
+print(a.__dict__)
+#a=dict()
+#for x in A().__dict__.items():
+#    a[x[0]] = str(x[1])
 
-print(funci.__globals__)
 
-
-s="b't\\x00t\\x01\\x83\\x01\\x01\\x00d\\x00S\\x00'"
-print( s[2:len(s)-1].encode()  )

@@ -1,8 +1,6 @@
-type: "class"
+type: "<class 'dump_test1.Iitp'>"
 body: 
-  classname: "Iitp"
-  metaclasses: "(<class 'object'>,)"
-  attributedict: 
+  fields: 
     Student: 
       type: "class"
       body: 
@@ -17,7 +15,7 @@ body:
       type: "function"
       body: 
         globals: {}
-        modulename: "__main__"
+        modulename: "dump_test1"
         functionname: "introduction"
         CodeType: 
           co_argcount: 1
@@ -43,12 +41,53 @@ body:
 
 
 
-    students: []
+    students: 
+      - 
+        type: "<class 'dump_test1.Iitp.Student'>"
+        body: 
+          fields: 
+            name: "Maxim Bystrov"
+            av_score: 5
+
+          class: 
+            type: "class"
+            body: 
+              classname: "Student"
+              metaclasses: "(<class 'object'>,)"
+              attributedict: 
+                name: "noname"
+                av_score: 4
+
+
+
+
+
+      - 
+        type: "<class 'dump_test1.Iitp.Student'>"
+        body: 
+          fields: 
+            name: "Prostoi Ivan"
+            av_score: 7
+
+          class: 
+            type: "class"
+            body: 
+              classname: "Student"
+              metaclasses: "(<class 'object'>,)"
+              attributedict: 
+                name: "noname"
+                av_score: 4
+
+
+
+
+
+
     expel: 
       type: "function"
       body: 
         globals: {}
-        modulename: "__main__"
+        modulename: "dump_test1"
         functionname: "expel"
         CodeType: 
           co_argcount: 1
@@ -71,3 +110,82 @@ body:
           co_lnotab: "b'\x00\x01'"
           co_freevars: !!python/tuple
           co_cellvars: !!python/tuple
+
+
+
+
+  class: 
+    type: "class"
+    body: 
+      classname: "Iitp"
+      metaclasses: "(<class 'object'>,)"
+      attributedict: 
+        Student: 
+          type: "class"
+          body: 
+            classname: "Student"
+            metaclasses: "(<class 'object'>,)"
+            attributedict: 
+              name: "noname"
+              av_score: 4
+
+
+
+        introduction: 
+          type: "function"
+          body: 
+            globals: {}
+            modulename: "dump_test1"
+            functionname: "introduction"
+            CodeType: 
+              co_argcount: 1
+              co_posonlyargcount: 0
+              co_kwonlyargcount: 0
+              co_nlocals: 1
+              co_stacksize: 2
+              co_flags: 67
+              co_code: "b't\x00d\x01\x83\x01\x01\x00d\x00S\x00'"
+              co_consts: !!python/tuple
+                - null
+                - "The best speciality in the world."
+              co_names: !!python/tuple
+                - "print"
+              co_varnames: !!python/tuple
+                - "self"
+              co_filename: "D:\VS Maxim\isp_l2\yaml\dump_test1.py"
+              co_name: "introduction"
+              co_firstlineno: 12
+              co_lnotab: "b'\x00\x01'"
+              co_freevars: !!python/tuple
+              co_cellvars: !!python/tuple
+
+
+
+        students: []
+        expel: 
+          type: "function"
+          body: 
+            globals: {}
+            modulename: "dump_test1"
+            functionname: "expel"
+            CodeType: 
+              co_argcount: 1
+              co_posonlyargcount: 0
+              co_kwonlyargcount: 0
+              co_nlocals: 1
+              co_stacksize: 2
+              co_flags: 67
+              co_code: "b't\x00\x83\x00|\x00_\x01d\x00S\x00'"
+              co_consts: !!python/tuple
+                - null
+              co_names: !!python/tuple
+                - "list"
+                - "students"
+              co_varnames: !!python/tuple
+                - "self"
+              co_filename: "D:\VS Maxim\isp_l2\yaml\dump_test1.py"
+              co_name: "expel"
+              co_firstlineno: 17
+              co_lnotab: "b'\x00\x01'"
+              co_freevars: !!python/tuple
+              co_cellvars: !!python/tuple
