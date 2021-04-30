@@ -17,21 +17,36 @@ class ExtraAttrsMeta(type):
 ExtraAttrsMeta.filename = "bonus.json"
 
 class FirstCombo(metaclass=ExtraAttrsMeta):
-    MushroomsPizza = "Large"
+    mushroomsPizza = "30cm MushroomsPizza"
 
+ExtraAttrsMeta.filename = "bk_bonus.json"
 
-print(FirstCombo.MushroomsPizza)
-print(FirstCombo.CocaCola)
-print(FirstCombo.McNuggets)
+class SecondCombo(metaclass=ExtraAttrsMeta):
+    pepperoni = "30cm Pepperoni"
+
+    
+print('FirstCombo',FirstCombo.mushroomsPizza)
+print('FirstCombo',FirstCombo.cocaCola)
+print('FirstCombo',FirstCombo.mcNuggets)
+
+print('SecondCombo',SecondCombo.pepperoni)
+print('SecondCombo',SecondCombo.pepsi)
+print('SecondCombo',SecondCombo.whopper)
 
 """
 a = {
-    'Cheetos':False,
-    'Coca-Cola':"0.5",
-    'McNuggets':"12"
+    'cheetos':False,
+    'cocaCola':"0.5",
+    'mcNuggets':"12"
 }
 
 JsonSerializer().dump(a,open('bonus.json','w'))
 """
-temp=123
+"""
+a1 = {
+    "pepsi":"Pepsi 2.0",
+    "whopper":"Whopper"
+}
 
+JsonSerializer().dump(a1,open('bk_bonus.json','w'))
+"""
