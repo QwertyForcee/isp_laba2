@@ -5,7 +5,15 @@ def use_glob():
     print(pi)
 
 class Iitp:
+    class Student:
+        name = "noname"
+        av_score = 4
+
+    def introduction(self):
+        print("The best speciality in the world.")
+
     students = list()
+
     def expel(self):
         self.students = list()
 

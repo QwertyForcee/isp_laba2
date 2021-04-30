@@ -3,6 +3,46 @@ body:
   classname: "Iitp"
   metaclasses: "(<class 'object'>,)"
   attributedict: 
+    Student: 
+      type: "class"
+      body: 
+        classname: "Student"
+        metaclasses: "(<class 'object'>,)"
+        attributedict: 
+          name: "noname"
+          av_score: 4
+
+
+    introduction: 
+      type: "function"
+      body: 
+        globals: {}
+        modulename: "__main__"
+        functionname: "introduction"
+        CodeType: 
+          co_argcount: 1
+          co_posonlyargcount: 0
+          co_kwonlyargcount: 0
+          co_nlocals: 1
+          co_stacksize: 2
+          co_flags: 67
+          co_code: "b't\x00d\x01\x83\x01\x01\x00d\x00S\x00'"
+          co_consts: !!python/tuple
+            - null
+            - "The best speciality in the world."
+          co_names: !!python/tuple
+            - "print"
+          co_varnames: !!python/tuple
+            - "self"
+          co_filename: "D:\VS Maxim\isp_l2\yaml\dump_test1.py"
+          co_name: "introduction"
+          co_firstlineno: 12
+          co_lnotab: "b'\x00\x01'"
+          co_freevars: !!python/tuple
+          co_cellvars: !!python/tuple
+
+
+
     students: []
     expel: 
       type: "function"
@@ -25,9 +65,9 @@ body:
             - "students"
           co_varnames: !!python/tuple
             - "self"
-          co_filename: "D:\ispl2\laba2_temp\yaml\dump_test1.py"
+          co_filename: "D:\VS Maxim\isp_l2\yaml\dump_test1.py"
           co_name: "expel"
-          co_firstlineno: 9
+          co_firstlineno: 17
           co_lnotab: "b'\x00\x01'"
           co_freevars: !!python/tuple
           co_cellvars: !!python/tuple

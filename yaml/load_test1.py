@@ -1,14 +1,24 @@
 from yaml_serializer import YamlSerializer
 
-res = YamlSerializer().load(open('useglob.yml'))
-"""
+#res = YamlSerializer().load(open('useglob.yml'))
+
+
 iitp = YamlSerializer().load(open('iitpclass.yml'))
-print(iitp)
 iitp = iitp()
-iitp.students=['Maxim Bystrov','123 123','321 321']
+
+s1 = iitp.Student()
+s1.name = "Maxim Bystrov"
+s1.av_score = 5
+
+s2 = iitp.Student()
+s2.name = "Ivan Ivanovich"
+s2.av_score = 7
+
+iitp.students=[s1,s2]
 print(iitp.students)
-print(iitp.expel())
+iitp.expel()
 print(iitp.students)
-"""
-print(res)
-res()
+iitp.introduction()
+
+#print(res)
+#res()

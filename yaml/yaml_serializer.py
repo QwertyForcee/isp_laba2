@@ -92,8 +92,9 @@ class Loader():
     def parse_prepare(self,data):
         data = data.split('\n')
         #print(data)
-        if '' in data:
-            data.remove('')
+        while '' in data:
+            if '' in data:
+                data.remove('')
         tabs_info = list()
         for item in data:
             tabs_info.append((item, len(re.findall(r"( *).+",item)[0])) )
@@ -152,6 +153,8 @@ class Loader():
                 for item in data[index:]:
                     if item[1] == indent:
                         more_items = True
+                        break
+                    if item[1] == indent - 2:
                         break
                     temp_index+=1                
                 if more_items:
@@ -217,6 +220,8 @@ class Loader():
                     res = True
                 elif value == 'false' or value == 'False':
                     res = False
+                elif value == 'null':
+                    res = None
             return [res,]
 
         temp = re.findall(r"- \"(.+)\"",string)
@@ -224,9 +229,6 @@ class Loader():
             return [temp[0],]
             
 
-
-    def tovalid(self,data):
-        pass
     def loads(self,data):
         obj = self.parse(0,self.parse_prepare(data),0)
         return obj
