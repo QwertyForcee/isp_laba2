@@ -25,7 +25,7 @@ body:
             - "team"
           co_varnames: !!python/tuple
             - "self"
-          co_filename: "D:\VS Maxim\isp_l2\yaml\test_yaml.py"
+          co_filename: "D:\ispl2\laba2_temp\yaml\test_yaml.py"
           co_name: "about"
           co_firstlineno: 15
           co_lnotab: "b'\x00\x01'"
@@ -64,7 +64,7 @@ body:
                 - "team"
               co_varnames: !!python/tuple
                 - "self"
-              co_filename: "D:\VS Maxim\isp_l2\yaml\test_yaml.py"
+              co_filename: "D:\ispl2\laba2_temp\yaml\test_yaml.py"
               co_name: "about"
               co_firstlineno: 15
               co_lnotab: "b'\x00\x01'"
