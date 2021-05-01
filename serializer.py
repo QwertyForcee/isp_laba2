@@ -136,7 +136,7 @@ class Serializer:
 
     def to_valid_func(self,data):
 
-        exec(f"from {data['modulename']} import __dict__ as md")
+        #exec(f"from {data['modulename']} import __dict__ as md")
 
         if isinstance(data['CodeType']['co_code'],list):
             cocode = bytes(data['CodeType']['co_code'])
@@ -175,9 +175,9 @@ class Serializer:
         )
         globs = self.to_valid_obj(data['globals'])
         globs.update({'__module__':data["modulename"]})
-        #test #eval(md)
-        eval('md').update(globs)
-        result = types.FunctionType(co,eval('md'),data['functionname'])
+        import builtins
+        globs.update(builtins.__dict__)
+        result = types.FunctionType(co,globs,data['functionname'])
         result.__module__=data["modulename"]
         return result
 
