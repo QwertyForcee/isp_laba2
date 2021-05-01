@@ -15,6 +15,11 @@ s2.name = "Prostoi Ivan"
 s2.av_score = 7
 iitp.students=[s1,s2]
 """
+print(iitp)
+data = YamlSerializer().dumps(iitp)
+#print(data)
+iitp = YamlSerializer().loads(data) 
+iitp = iitp()
 print(iitp.Student.name,iitp.Student.av_score)
 print(iitp.students)
 iitp.expel()
@@ -22,4 +27,5 @@ print(iitp.students)
 iitp.introduction()
 
 print(res())
+
 

@@ -17,7 +17,7 @@ body:
     co_names: !!python/tuple
       - "pi"
     co_varnames: !!python/tuple
-    co_filename: "D:\VS Maxim\isp_l2\yaml\dump_test1.py"
+    co_filename: "D:\ispl2\laba2_temp\yaml\dump_test1.py"
     co_name: "use_glob"
     co_firstlineno: 4
     co_lnotab: "b'\x00\x01'"

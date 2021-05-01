@@ -11,8 +11,6 @@ class Serializer:
             data = self.class_to_valid(obj)
             return data
 
-        elif str(obj).startswith('<__main__.'): 
-            return  self.instance_to_valid(obj)
         elif isinstance(obj,list):
             return [self.to_valid_dict(x) for x in obj]
         elif isinstance(obj,(dict,tuple,int,float,str,bool,set)):
@@ -30,6 +28,11 @@ class Serializer:
             else:
                 return self.to_valid_instance(data)
         else:
+            if isinstance(data,list):
+                res = list()
+                for d in data:
+                    res.append(self.to_valid_obj(d))
+                return res
             return data
                 
 
@@ -177,7 +180,7 @@ class Serializer:
         globs.update({'__module__':data["modulename"]})
         #test #eval(md)
         eval('md').update(globs)
-        result = types.FunctionType(co,eval('md'),data['functionname'])
+        result = types.FunctionType(co,globs,data['functionname'])
         result.__module__=data["modulename"]
         return result
 
