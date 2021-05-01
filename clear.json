@@ -36,9 +36,9 @@
                             "slf",
                             "x"
                         ],
-                        "co_filename": "D:\\ispl2\\laba2_temp\\cleartest.py",
+                        "co_filename": "D:\\VS Maxim\\isp_l2\\cleartest.py",
                         "co_name": "<lambda>",
-                        "co_firstlineno": 14,
+                        "co_firstlineno": 18,
                         "co_lnotab": "b''",
                         "co_freevars": [],
                         "co_cellvars": []
@@ -81,9 +81,9 @@
                         "co_varnames": [
                             "self"
                         ],
-                        "co_filename": "D:\\ispl2\\laba2_temp\\cleartest.py",
+                        "co_filename": "D:\\VS Maxim\\isp_l2\\cleartest.py",
                         "co_name": "hate",
-                        "co_firstlineno": 19,
+                        "co_firstlineno": 23,
                         "co_lnotab": "b'\\x00\\x01'",
                         "co_freevars": [],
                         "co_cellvars": []
@@ -131,9 +131,9 @@
                                     "slf",
                                     "x"
                                 ],
-                                "co_filename": "D:\\ispl2\\laba2_temp\\cleartest.py",
+                                "co_filename": "D:\\VS Maxim\\isp_l2\\cleartest.py",
                                 "co_name": "<lambda>",
-                                "co_firstlineno": 14,
+                                "co_firstlineno": 18,
                                 "co_lnotab": "b''",
                                 "co_freevars": [],
                                 "co_cellvars": []
@@ -176,9 +176,9 @@
                                 "co_varnames": [
                                     "self"
                                 ],
-                                "co_filename": "D:\\ispl2\\laba2_temp\\cleartest.py",
+                                "co_filename": "D:\\VS Maxim\\isp_l2\\cleartest.py",
                                 "co_name": "hate",
-                                "co_firstlineno": 19,
+                                "co_firstlineno": 23,
                                 "co_lnotab": "b'\\x00\\x01'",
                                 "co_freevars": [],
                                 "co_cellvars": []
