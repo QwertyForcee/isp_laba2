@@ -44,7 +44,15 @@ class TestYamlSerializer(unittest.TestCase):
         self.assertEqual(obj.Student.name,Iitp.Student.name)
         self.assertEqual(obj.Student.av_score,Iitp.Student.av_score)
         self.assertEqual(obj.expel.__code__,Iitp.expel.__code__)
-
+        
+    def test_class(self):
+        class Testik:
+            title = "test class named Testik"
+            def about(self):
+                return f"title:{self.title}" 
+        data = YamlSerializer().dumps(Testik)
+        returned_class = YamlSerializer().loads(data)
+        self.assertEqual(Testik().about(),returned_class().about()) 
 
 if __name__ == '__main__':
     unittest.main()    
