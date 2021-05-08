@@ -15,11 +15,18 @@ class Serializer:
             return [self.to_valid_dict(x) for x in obj]
         elif isinstance(obj,(dict,tuple,int,float,str,bool,set)):
             return obj
+        elif inspect.ismodule(obj):
+            return {'__module__':f'{obj.__name__}'}
         else:
             return self.instance_to_valid(obj)
 
 
     def to_valid_obj(self,data):
+        
+#        temp = re.findall(r"__module__: \"(w+)\"",string)
+#        if len(temp)>0:
+#            return __import__(temp[0])
+        
         if str(type(data))=="<class 'dict'>" and 'type' in data.keys():
             if data['type'] == 'function':
                 return self.to_valid_func(data['body'])
@@ -177,9 +184,13 @@ class Serializer:
             tuple(data['CodeType']['co_cellvars'])
         )
         globs = self.to_valid_obj(data['globals'])
+        for n,v in globs.items():
+            if isinstance(v,dict) and '__module__' in v.keys():
+                globs[n] = __import__(v['__module__'])
         globs.update({'__module__':data["modulename"]})
         #import builtins
         #globs.update(builtins.__dict__)
+
         globs.update({'__builtins__':__import__('builtins')})
         result = types.FunctionType(co,globs,data['functionname'])
         result.__module__=data["modulename"]

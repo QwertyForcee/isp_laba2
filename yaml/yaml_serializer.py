@@ -109,6 +109,7 @@ class Loader():
             cur = d[1]
             if cur == indent:
                 temp = self.validtemp(d[0])
+                
                 if isinstance(temp,tuple):
                     if temp[0]=='!!python/tuple':
                         prev = temp[1]
@@ -176,6 +177,10 @@ class Loader():
         return res
 
     def validtemp(self,string):
+
+        temp = re.findall(r"__module__: \"(w+)\"",string)
+        if len(temp)>0:
+            return __import__(temp[0])
 
         temp = re.findall(r"(\w+): \[\]",string)
         if len(temp)>0:
