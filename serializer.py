@@ -178,8 +178,9 @@ class Serializer:
         )
         globs = self.to_valid_obj(data['globals'])
         globs.update({'__module__':data["modulename"]})
-        import builtins
-        globs.update(builtins.__dict__)
+        #import builtins
+        #globs.update(builtins.__dict__)
+        globs.update({'__builtins__':__import__('builtins')})
         result = types.FunctionType(co,globs,data['functionname'])
         result.__module__=data["modulename"]
         return result
